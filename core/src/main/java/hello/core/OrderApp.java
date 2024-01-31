@@ -10,14 +10,15 @@ import hello.core.order.OrderServiceImpl;
 
 public class OrderApp {
     public static void main(String[] args) {
-        MemberService memberService = new MemberServiceImpl();
-        OrderService orderService = new OrderServiceImpl();
+        AppConfig appConfig = new AppConfig();
+        MemberService memberService = appConfig.memberService();
+        OrderService orderService = appConfig.orderService();
 
         Long memberid = 1L;
         Member member = new Member(memberid, "memberA", Grade.VIP);
         memberService.join(member);
 
-        Order order = orderService.createOrder(memberid, "itemA", 10000);
+        Order order = orderService.createOrder(memberid, "itemA", 120000);
         System.out.println("order = " + order);
         System.out.println("order.calculatePrcie = " + order.calculatePrice());
     }

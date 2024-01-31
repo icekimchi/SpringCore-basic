@@ -8,8 +8,13 @@ import hello.core.member.MemberRepository;
 import hello.core.member.MemoryMemberRepository;
 
 public class OrderServiceImpl implements  OrderService{
-    private final MemberRepository memberRepository = new MemoryMemberRepository();
-    private  DiscountPolicy discountPolicy; //인터페이스에만 의존하도록 코드 변경
+    private final MemberRepository memberRepository;
+    private final DiscountPolicy discountPolicy; //인터페이스에만 의존하도록 코드 변경
+
+    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
+        this.memberRepository = memberRepository;
+        this.discountPolicy = discountPolicy;
+    }
 
     //private final DiscountPolicy discountPolicy = new FixDiscountPolicy(); //구체 클래스인 FixDiscountPolicy에도 의존하고 있다.
     //private final DiscountPolicy discountPolicy = new RateDiscountPolicy();
