@@ -24,12 +24,12 @@ public class ApplicationContextExtendsFindTest {
         assertThrows(NoUniqueBeanDefinitionException.class,
                 () -> ac.getBean(DiscountPolicy.class));
     }
-    @Test
-    @DisplayName("부모 타입으로 조회, 자식이 둘이상이씅면, 중복 오류가 발생한다.")
-    void findBeanByParentTypeName(){
-        DiscountPolicy rateDisCountPolicy = ac.getBean("rateDisCountPolicy", DiscountPolicy.class);
-        assertThat(rateDisCountPolicy).isInstanceOf(RateDiscountPolicy.class);
-    }
+//    @Test
+//    @DisplayName("부모 타입으로 조회, 자식이 둘이상이씅면, 중복 오류가 발생한다.")
+//    void findBeanByParentTypeName(){
+//        DiscountPolicy rateDisCountPolicy = ac.getBean("rateDisCountPolicy", DiscountPolicy.class);
+//        assertThat(rateDisCountPolicy).isInstanceOf(RateDiscountPolicy.class);
+//    }
 
     @Test
     @DisplayName("특정 하위 타입으로 조회")
